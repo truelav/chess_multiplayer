@@ -1,0 +1,61 @@
+*, html, .app {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  align-items: center;
+  justify-content: center;
+}
+
+.app {
+
+}
+
+.board_outer_container {
+  display: flex;
+  margin: auto;
+}
+
+.board {
+  height: 600px;
+  width: 600px;
+  display: grid;
+  grid-template-columns: repeat(8 1fr);
+  
+}
+
+.cell {
+  width: 75px;
+  height: 75px;
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+}
+
+.black {
+  background-color: #779656;
+}
+
+.white {
+  background-color: #eeeed2;
+}
+
+.figure_img {
+  width: 70px;
+}
+
+/* .white_pawn {
+  background-image: url('./assets/white_pawn.png');
+}
+
+.black_pawn {
+  background-image: url('./assets/black_pawn.png');
+} */
