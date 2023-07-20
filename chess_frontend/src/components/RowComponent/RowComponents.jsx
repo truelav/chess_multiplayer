@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
-import CellComponent from "../CellComponent/CellComponent"
+import CellComponent from "../CellComponent/CellComponent";
 
-const RowComponent = ({row}) => {
-    return (
-        <div className="row">
-        {row.map((cell, colIdx) => (
-            <CellComponent cell={cell} key={colIdx} colIdx={colIdx}/>
-        ))}
+const RowComponent = ({ row, rowIdx }) => {
+  return (
+    <div className={["row", `rowIdx_${rowIdx}`].join(" ")}>
+      {row.map((cell, colIdx) => (
+        <CellComponent cell={cell} key={colIdx} colIdx={colIdx} />
+      ))}
     </div>
-    )
-}
+  );
+};
 
-export default RowComponent
+export default RowComponent;
