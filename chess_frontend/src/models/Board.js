@@ -81,6 +81,16 @@ export default class Board {
     this.initializeQueens();
   }
 
+  highlightCells(selectedCell){
+    for(let i = 0; i < 8; i++){
+      const row = this.board[i]
+      for(let k = 0; k < row.length; k++){
+        const targetCell = row[k]
+        targetCell.available = !!selectedCell.figure?.isValidMove(targetCell)
+      }
+    }
+  }
+
   makeBoardCopy() {
     const matrix = [];
     this.board.forEach((item) => {

@@ -1,11 +1,10 @@
 import Figure_Names from "./Figure_Names";
 
 export default class Figure {
-  constructor(x, y, color, figure) {
+  constructor(x, y, color) {
     this.x = x;
     this.y = y;
     this.color = color;
-    this.figure = figure;
     this.captured = false;
   }
 
@@ -16,6 +15,7 @@ export default class Figure {
     if (targetCell.figure?.name === Figure_Names.KING) {
       return false;
     }
+    return true
   }
 
   getFigureColor() {}

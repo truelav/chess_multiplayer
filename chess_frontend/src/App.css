@@ -55,3 +55,10 @@ body {
 .selected {
   background-color: #966056;
 }
+
+.available {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #60ba47;
+}

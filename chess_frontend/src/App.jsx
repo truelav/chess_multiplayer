@@ -17,6 +17,14 @@ function App() {
     restartGame();
   }, []);
 
+  // useEffect(() => {
+  //   this.board.highlightCells(selectedCell);
+  // }, [selectedCell]);
+
+  // useEffect(() => {
+  //   board.highlightCells(selectedCell)
+  // }, [selectedCell])
+
   const restartGame = () => {
     const newBoard = new Board();
     newBoard.initializeBoard();
@@ -43,6 +51,10 @@ function App() {
     setBoard(new Board(newBoard));
   };
 
+  // const updateBoard = (board) => {
+  //   setBoard(new Board(board))
+  // }
+
   const handleMoveFigure = (startX, startY, endX, endY, figure) => {
     const curBoard = board.makeBoardCopy();
     const curCell = curBoard[startX][startY];
@@ -57,12 +69,14 @@ function App() {
   };
 
   const handleSelectCell = (cell) => {
-    console.log("row: " + cell.x, "col: " + cell.y, cell.figure);
+    // console.log(cell);
 
     if (cell.figure) {
       // do all the checks before
       setSelectedCell(cell);
       setSelectedFigure(cell.figure);
+
+      board.highlightCells(cell)
     }
 
     if (!cell.figure && !selectedCell.figure) {

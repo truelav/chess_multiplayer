@@ -16,10 +16,12 @@ export default class Pawn extends Figure {
     this.captured = true;
   }
 
-  isValidMove(targetCell) {
-    if (!super.isValidMove(targetCell)) {
-      return false;
-    }
-    // all other rules for the pawn
-  }
+  // isValidMove(targetCell) {
+  //   if (!super.isValidMove(targetCell)) {
+  //     return false;
+  //   }
+  //   if(this.cell.isEmptyVertical(targetCell)){
+  //     return true
+  //   }
+  // }
 }
