@@ -1,7 +1,6 @@
 import Colors from "./Colors";
 import Figure_Names from "./Figure_Names";
 import Cell from "./Cell";
-
 import Pawn from "./Pawn";
 import Rook from "./Rook";
 import Bishop from "./Bishop";
@@ -151,20 +150,23 @@ export default class Board {
     return matrix;
   }
 
-  rotateView(matrix) {
-    for (let i = 0; i < 8; i++) {
-      for (let j = i; j < 8; j++) {
+  rotateView() {
+    const matrix = this.board.slice();
+    const n = matrix.length;
+
+    for (let i = 0; i < n / 2; i++) {
+      for (let j = 0; j < n; j++) {
         const temp = matrix[i][j];
-        matrix[i][j] = matrix[j][i];
-        matrix[j][i] = temp;
+        matrix[i][j] = matrix[n - i - 1][j];
+        matrix[n - i - 1][j] = temp;
       }
     }
 
-    for (let i = 0; i < 8 / 2; i++) {
-      for (let j = 0; j < 8; j++) {
+    for (let i = 0; i < n; i++) {
+      for (let j = 0; j < n / 2; j++) {
         const temp = matrix[i][j];
-        matrix[i][j] = matrix[8 - i - 1][j];
-        matrix[8 - i - 1][j] = temp;
+        matrix[i][j] = matrix[i][n - j - 1];
+        matrix[i][n - j - 1] = temp;
       }
     }
 

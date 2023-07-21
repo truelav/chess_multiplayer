@@ -25,9 +25,15 @@ function App() {
     setBoard(newBoard);
   };
 
-  const checkCurrentPlayerTurn = () => {};
+  const checkPlayerTurn = () => {};
 
-  const rotateView = () => {};
+  const changePlayerTurn = () => {};
+
+  const rotateView = () => {
+    const newBoard = board.rotateView();
+    console.log(newBoard);
+    setBoard(new Board(newBoard));
+  };
 
   const handleMoveFigure = (startX, startY, endX, endY, figure) => {
     const curBoard = board.makeBoardCopy();
@@ -37,7 +43,8 @@ function App() {
     figure.y = endY;
     targetCell.figure = figure;
     curCell.figure = null;
-
+    setSelectedCell(null);
+    setSelectedFigure(null);
     setBoard(new Board(curBoard));
   };
 
@@ -65,7 +72,6 @@ function App() {
     console.log("row: " + cell.x, "col: " + cell.y, cell.figure);
   };
 
-  // console.log(board)
   return (
     <>
       <section className="main">
@@ -86,7 +92,7 @@ function App() {
             figures={board.lostWhiteFigures}
           />
         </div> */}
-        <button onClick={makeBoardCopy}>Rotate View</button>
+        <button onClick={rotateView}>Rotate View</button>
       </section>
     </>
   );
