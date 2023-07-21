@@ -10,8 +10,8 @@ import King from "./King";
 import Queen from "./Queen";
 
 export default class Board {
-  constructor() {
-    this.board = [];
+  constructor(board) {
+    this.board = board || [];
   }
 
   getCell(row, col) {
@@ -143,9 +143,15 @@ export default class Board {
     this.initializeQueens();
   }
 
-  rotateView() {
-    const matrix = this.board;
+  makeBoardCopy() {
+    const matrix = [];
+    this.board.forEach((item) => {
+      matrix.push([...item]);
+    });
+    return matrix;
+  }
 
+  rotateView(matrix) {
     for (let i = 0; i < 8; i++) {
       for (let j = i; j < 8; j++) {
         const temp = matrix[i][j];
@@ -161,6 +167,7 @@ export default class Board {
         matrix[8 - i - 1][j] = temp;
       }
     }
+
     return matrix;
   }
 }
