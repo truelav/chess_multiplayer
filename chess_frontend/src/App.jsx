@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import Board from "./models/Board";
-import { Player } from "./models/Player";
+import Player from "./models/Player";
+import Colors from "./models/Colors";
 import BoardComponent from "./components/BoardComponent/BoardComponent";
 import "./App.css";
-import Colors from "./models/Colors";
 
 function App() {
   const [board, setBoard] = useState(new Board());
@@ -25,9 +25,17 @@ function App() {
     setBoard(newBoard);
   };
 
-  const checkPlayerTurn = () => {};
+  const checkPlayerTurn = (figure) => {
+    return figure.color === currentPlayerTurn.color;
+  };
 
-  const changePlayerTurn = () => {};
+  const changePlayerTurn = () => {
+    if (currentPlayerTurn.color === Colors.WHITE) {
+      setCurrentPlayerTurn(blackPlayer);
+    } else {
+      setCurrentPlayerTurn(whitePlayer);
+    }
+  };
 
   const rotateView = () => {
     const newBoard = board.rotateView();
@@ -49,6 +57,8 @@ function App() {
   };
 
   const handleSelectCell = (cell) => {
+    console.log("row: " + cell.x, "col: " + cell.y, cell.figure);
+
     if (cell.figure) {
       // do all the checks before
       setSelectedCell(cell);
@@ -68,8 +78,6 @@ function App() {
         selectedFigure
       );
     }
-
-    console.log("row: " + cell.x, "col: " + cell.y, cell.figure);
   };
 
   return (

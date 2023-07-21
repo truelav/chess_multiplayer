@@ -1,5 +1,4 @@
 import Colors from "./Colors";
-import Figure_Names from "./Figure_Names";
 import Cell from "./Cell";
 import Pawn from "./Pawn";
 import Rook from "./Rook";
@@ -37,18 +36,8 @@ export default class Board {
 
   initializePawns() {
     for (let i = 0; i < 8; i++) {
-      this.getCell(6, i).figure = new Pawn(
-        6,
-        i,
-        Colors.WHITE,
-        Figure_Names.PAWN
-      );
-      this.getCell(1, i).figure = new Pawn(
-        1,
-        i,
-        Colors.BLACK,
-        Figure_Names.PAWN
-      );
+      this.getCell(6, i).figure = new Pawn(6, i, Colors.WHITE);
+      this.getCell(1, i).figure = new Pawn(1, i, Colors.BLACK);
     }
   }
 
@@ -60,77 +49,27 @@ export default class Board {
   }
 
   initializeKnights() {
-    this.getCell(7, 1).figure = new Knight(
-      7,
-      1,
-      Colors.WHITE,
-      Figure_Names.KNIGHT
-    );
-    this.getCell(7, 6).figure = new Knight(
-      7,
-      6,
-      Colors.WHITE,
-      Figure_Names.KNIGHT
-    );
-    this.getCell(0, 1).figure = new Knight(
-      0,
-      1,
-      Colors.BLACK,
-      Figure_Names.KNIGHT
-    );
-    this.getCell(0, 6).figure = new Knight(
-      0,
-      6,
-      Colors.BLACK,
-      Figure_Names.KNIGHT
-    );
+    this.getCell(7, 1).figure = new Knight(7, 1, Colors.WHITE);
+    this.getCell(7, 6).figure = new Knight(7, 6, Colors.WHITE);
+    this.getCell(0, 1).figure = new Knight(0, 1, Colors.BLACK);
+    this.getCell(0, 6).figure = new Knight(0, 6, Colors.BLACK);
   }
 
   initializeBishops() {
-    this.getCell(7, 2).figure = new Bishop(
-      7,
-      2,
-      Colors.WHITE,
-      Figure_Names.BISHOP
-    );
-    this.getCell(7, 5).figure = new Bishop(
-      7,
-      5,
-      Colors.WHITE,
-      Figure_Names.BISHOP
-    );
-    this.getCell(0, 2).figure = new Bishop(
-      0,
-      2,
-      Colors.BLACK,
-      Figure_Names.BISHOP
-    );
-    this.getCell(0, 5).figure = new Bishop(
-      0,
-      5,
-      Colors.BLACK,
-      Figure_Names.BISHOP
-    );
+    this.getCell(7, 2).figure = new Bishop(7, 2, Colors.WHITE);
+    this.getCell(7, 5).figure = new Bishop(7, 5, Colors.WHITE);
+    this.getCell(0, 2).figure = new Bishop(0, 2, Colors.BLACK);
+    this.getCell(0, 5).figure = new Bishop(0, 5, Colors.BLACK);
   }
 
   initializeQueens() {
-    this.getCell(0, 3).figure = new Queen(
-      0,
-      3,
-      Colors.BLACK,
-      Figure_Names.QUEEN
-    );
-    this.getCell(7, 3).figure = new Queen(
-      7,
-      3,
-      Colors.WHITE,
-      Figure_Names.QUEEN
-    );
+    this.getCell(0, 3).figure = new Queen(0, 3, Colors.BLACK);
+    this.getCell(7, 3).figure = new Queen(7, 3, Colors.WHITE);
   }
 
   initializeKings() {
-    this.getCell(0, 4).figure = new King(0, 4, Colors.BLACK, Figure_Names.KING);
-    this.getCell(7, 4).figure = new King(7, 4, Colors.WHITE, Figure_Names.KING);
+    this.getCell(0, 4).figure = new King(0, 4, Colors.BLACK);
+    this.getCell(7, 4).figure = new King(7, 4, Colors.WHITE);
   }
 
   initializePieces() {
