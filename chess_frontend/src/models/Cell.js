@@ -7,18 +7,17 @@ export default class Cell {
     this.available = false;
   }
 
-  isCellEmpty(){
-    return this.figure === null
+  isCellEmpty() {
+    return this.figure === null;
   }
 
   isEmptyVertical(targetCell) {
+    const min = Math.min(this.y, targetCell.y);
+    const max = Math.max(this.y, targetCell.y);
 
-    const min = Math.min(this.y, targetCell.y)
-    const max = Math.max(this.y, targetCell.y)
-
-    for(let row = min + 1; row < max; row++){
-      if(this.board.getCell(this.x, row).isCellEmpty()){
-        return true
+    for (let row = min + 1; row < max; row++) {
+      if (this.board.getCell(this.x, row).isCellEmpty()) {
+        return true;
       }
     }
   }
@@ -26,4 +25,8 @@ export default class Cell {
   isEmptyHorizontal(targetCell) {}
 
   isEmptyDiagonal(targetCell) {}
+
+  setFigure() {}
+
+  moveFigure() {}
 }
